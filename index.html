@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name = "viewport" content="width=device-width ,initial-scale=1.0">
+        <title>Trivia Game</title>
+        <link rel ="stylesheet" href="/static/style.css">
+    </head>
+    <body>
+        <div class="main-div">
+            <div class="inner-div">
+                <h2 class ="question">Question</h2>
+                <form action="/submitQuiz",method="post"></form>
+                {% for question in question_list %}
+               <h4>
+                <question class="q">{{question.question}}</question>
+                <ul>
+                <li>
+                    <input type="radio" name={{question.q_id}}  class ="answer" value="{{question.option1}}"required>{{question.option1}}
+                </li>
+                <li>
+                    <input type="radio" name={{question.q_id}}  class ="answer" value="{{question.option2}}"required>{{question.option2}}
+                </li>
+                <li>
+                    <input type="radio" name={{question.q_id}}  class ="answer" value="{{question.option3}}"required>{{question.option3}}
+                </li>
+                <li>
+                    <input type="radio" name={{question.q_id}}  class ="answer" value="{{question.option4}}"required>{{question.option4}}
+                </li>
+                </ul>
+            </h4>
+                 {% endfor %}     
+                <button id="submit">submit</button>
+            </div>
+        </div>
+        <script src="Question.js">
+           
+        </script>
+    </body>
+</html>
